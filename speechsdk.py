@@ -1,9 +1,12 @@
 import azure.cognitiveservices.speech as speechsdk
 import pyttsx3
+import os
 
 # Creates an instance of a speech config with specified subscription key and service region.
 # Replace with your own subscription key and service region (e.g., "westus").
-speech_key, service_region = "stub", "stub"
+apiKey = os.environ.get('APIKEY')
+region = os.environ.get('REGION')
+speech_key, service_region = apiKey, region
 speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
 
 # Creates a recognizer with the given settings
